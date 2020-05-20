@@ -67,29 +67,3 @@ r = Routine.new({ //play a routine
 )
 
 r.stop; //if you want to stop the routine early
-
-/*(
-//ctrl+enter on this clump once recording has begun
-~data = [1,1,2,2,5,5,5,5,5,7,8,8,11,11,11,11,11,11,11,11,12,12,13,13,13,13,13,13,13,13,15,15,15,51,51,57,58,60,68,74,98,118,149,217,262,402,518,583,959,1281,1663,2179,2727,3499,4632,6421,7783,13747,19273,25600,33276,43843,53736,65778,83836,101657,121465,140909,161831,188172,213242,243622,275367,308650,336802,366317,397121,428654,462780,496535,526396,555313,580619,607670,636350,667592,699706,732197,758809,784326,811865,840351,869170,905358,938154,965785,988197,1012582,1039909,1069424,1103461,1132539,1158040];
-
-r = Routine.new({ //play a routine
-
-	~data.do({ //iterate over the data
-		arg numCases;
-
-		Synth.new( //play a sound for each datapoint
-			\tone,
-			[
-				\freq, 62.midicps, //fixed freq
-				\amp, numCases.linlin(1,1150840,-45,-3).dbamp.postln, //amplitude mapping - -60 seems extremely quiet, I might suggest starting at -45 or so
-				\grainDur, numCases.lincurve(1,1158040,3,0.001,-5).postln, //grain duration
-				//-5 is a linear curving parameter that I have been tweaking. large negative values will bend the line more "exponentially", larger positive values will bend the line more "logarithmically". -5 seems pretty reasonable
-			]
-		);
-		1.wait; //3 seconds for each data point
-	});
-}).play;
-)
-
-r.stop; //if you want to stop the routine early
-*/
